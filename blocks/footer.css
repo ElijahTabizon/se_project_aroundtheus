@@ -1,0 +1,19 @@
+.footer {
+  margin-top: 67px;
+  margin-bottom: 60px;
+  display: flex;
+}
+
+.footer__copyright {
+  max-width: 318px;
+  line-height: 18px;
+  margin: 0;
+  color: #545454;
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
