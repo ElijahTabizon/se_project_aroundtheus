@@ -99,7 +99,7 @@
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 768px) {
   .profile__info {
     display: flex;
     flex-wrap: wrap;
