@@ -48,6 +48,7 @@
   line-height: 48px;
   grid-area: title;
   margin: 0;
+  text-overflow: ellipsis;
 }
 
 .profile__description {
@@ -56,6 +57,7 @@
   font-weight: 400;
   grid-area: description;
   margin: 0;
+  text-overflow: ellipsis;
 }
 
 .profile__image {
@@ -102,5 +104,11 @@
     font-size: 22px;
     line-height: 26.63px;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__image {
+    margin: 0px;
   }
 }
