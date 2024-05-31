@@ -16,6 +16,6 @@ To organize my code, I used proper BEM and to keep all styles in the same catego
 
 **Link to Github**
 
-https://github.com/ElijahTabizon/se_project_aroundtheus
+https://elijahtabizon.github.io/se_project_aroundtheus/
 
 **Images**
