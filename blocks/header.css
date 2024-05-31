@@ -11,9 +11,10 @@
 
 @media screen and (max-width: 320px) {
   .header {
-    margin: 20px 0;
+    margin-top: 0px;
+    margin-left: 0px;
     width: 320px;
-    padding: 20px 20px 30px;
+    padding: 28px 20px 32px;
   }
   .header__logo {
     height: 24px;

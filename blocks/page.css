@@ -5,7 +5,7 @@
 }
 
 .page__content {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
