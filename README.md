@@ -18,4 +18,5 @@ To organize my code, I used proper BEM and to keep all styles in the same catego
 
 https://elijahtabizon.github.io/se_project_aroundtheus/
 
-**Images**
+**Link to video**
+https://drive.google.com/file/d/10fo8GlfqnVcwSEQKH3PMIJX1hq3xHJah/view?usp=drive_link
