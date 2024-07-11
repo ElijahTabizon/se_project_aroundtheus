@@ -115,4 +115,27 @@
     bottom: calc(100% + 20px);
     left: calc(100% - 35px);
   }
+
+  .modal__container {
+    padding: 22px;
+    margin-top: 123px;
+    box-sizing: border-box;
+    max-height: 322px;
+    height: 100%;
+  }
+
+  .modal__heading {
+    font-family: "inter", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+
+  .modal__form-input {
+    max-height: 27px;
+    height: 100%;
+    font-family: "inter", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 16.94px;
+    font-weight: 400px;
+  }
 }
