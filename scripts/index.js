@@ -50,6 +50,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const addCardForm = addCardModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -79,7 +80,18 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopUp();
+  closePopUp(profileEditModal);
+}
+
+const cardTitleInput = addCardForm.querySelector(".modal__form-input");
+const cardLinkInput = addCardForm.querySelector(".modal__form-input");
+// add card
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const titleValue = cardTitleInput.value;
+  const linkValue = cardLinkInput.value;
+  const cardElement = getCardElement();
+  closePopUp(addCardModal);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -93,6 +105,7 @@ profileCloseButton.addEventListener("click", () =>
 );
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 addNewCardButton.addEventListener("click", () => openPopUp(addCardModal));
 addNewCardButtonClose.addEventListener("click", () => closePopUp(addCardModal));
