@@ -55,6 +55,12 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
+/*const cardData = {
+  name: "Card Title",
+  link: "path/to/image.jpg",
+  imageAlt: "Desciption of Image",
+};*/
+
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -63,7 +69,13 @@ function openPopUp(modal) {
   modal.classList.add("modal_opened");
 }
 
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+}
+
 function getCardElement(cardData) {
+  const cardTemplate = document.querySelector("#card-template").content;
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -90,7 +102,9 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const titleValue = cardTitleInput.value;
   const linkValue = cardLinkInput.value;
-  const cardElement = getCardElement();
+  const cardData = { name: titleValue, link: linkValue, imageAlt: titleValue };
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
   closePopUp(addCardModal);
 }
 
@@ -110,7 +124,8 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 addNewCardButton.addEventListener("click", () => openPopUp(addCardModal));
 addNewCardButtonClose.addEventListener("click", () => closePopUp(addCardModal));
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-});
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+//{
+//const cardElement = getCardElement(cardData);
+//cardListEl.prepend(cardElement);
+//});
