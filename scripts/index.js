@@ -95,8 +95,8 @@ function handleProfileEditSubmit(e) {
   closePopUp(profileEditModal);
 }
 
-const cardTitleInput = addCardForm.querySelector(".modal__form-input");
-const cardLinkInput = addCardForm.querySelector(".modal__form-input");
+const cardTitleInput = addCardForm.querySelector("#card-title-input");
+const cardLinkInput = addCardForm.querySelector("#card-link-input");
 // add card
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
