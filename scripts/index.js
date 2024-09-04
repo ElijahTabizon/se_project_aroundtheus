@@ -89,6 +89,14 @@ function getCardElement(cardData) {
   trashButton.addEventListener("click", () => {
     cardElement.remove();
   });
+
+  const previewImageModal = document.querySelector("#preview-image-modal");
+  cardImageEl.addEventListener("click", () => {
+    openPopUp(previewImageModal);
+    previewImageModal.src = cardData.link;
+    previewImageModal.alt = cardData.name;
+  });
+
   // set the path to the image to the link field of the object
   cardImageEl.src = cardData.link;
   // set the image alt text to the name field of the object
@@ -135,7 +143,3 @@ addNewCardButton.addEventListener("click", () => openPopUp(addCardModal));
 addNewCardButtonClose.addEventListener("click", () => closePopUp(addCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-//{
-//const cardElement = getCardElement(cardData);
-//cardListEl.prepend(cardElement);
-//});

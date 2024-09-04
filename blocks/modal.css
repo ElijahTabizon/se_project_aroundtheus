@@ -2,6 +2,12 @@
   display: none;
 }
 
+.modal__preview-image {
+  width: 433px;
+  height: 540px;
+  border: none;
+}
+
 .modal__container {
   background-color: rgb(255, 255, 255);
   margin: auto;
