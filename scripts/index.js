@@ -55,12 +55,6 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-/*const cardData = {
-  name: "Card Title",
-  link: "path/to/image.jpg",
-  imageAlt: "Desciption of Image",
-};*/
-
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -89,6 +83,8 @@ function getCardElement(cardData) {
   trashButton.addEventListener("click", () => {
     cardElement.remove();
   });
+
+  // preview image modal
 
   const previewImageModal = document.querySelector("#preview-image-modal");
   const modalImg = document.querySelector("#modal-image");
