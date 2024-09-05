@@ -91,10 +91,15 @@ function getCardElement(cardData) {
   });
 
   const previewImageModal = document.querySelector("#preview-image-modal");
+  const modalImg = document.querySelector("#modal-image");
   cardImageEl.addEventListener("click", () => {
+    const cardData = {
+      link: cardImageEl.src,
+      name: cardImageEl.alt,
+    };
+    modalImg.src = cardData.link;
+    modalImg.alt = cardData.name;
     openPopUp(previewImageModal);
-    previewImageModal.src = cardData.link;
-    previewImageModal.alt = cardData.name;
   });
 
   // set the path to the image to the link field of the object
