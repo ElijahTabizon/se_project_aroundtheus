@@ -85,13 +85,21 @@ function getCardElement(cardData) {
   });
 
   // preview image modal
+  const previewImageModalClose = document.querySelector("#preview-image-close");
+  previewImageModalClose.addEventListener("click", () => {
+    closePopUp(previewImageModal);
+  });
 
+  const previewImageModalTitle = document.querySelector(
+    ".modal__preview-image-title"
+  );
   const previewImageModal = document.querySelector("#preview-image-modal");
   const modalImg = document.querySelector("#modal-image");
   cardImageEl.addEventListener("click", () => {
     const cardData = {
       link: cardImageEl.src,
       name: cardImageEl.alt,
+      title: previewImageModalTitle.alt,
     };
     modalImg.src = cardData.link;
     modalImg.alt = cardData.name;

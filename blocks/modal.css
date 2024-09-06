@@ -3,9 +3,15 @@
 }
 
 .modal__preview {
-  width: 433px;
-  height: 540px;
   border: none;
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
+.modal__preview-image {
+  height: 540px;
+  width: 433px;
 }
 
 .modal__container {
