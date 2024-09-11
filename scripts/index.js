@@ -99,10 +99,11 @@ function getCardElement(cardData) {
     const cardData = {
       link: cardImageEl.src,
       name: cardImageEl.alt,
-      title: previewImageModalTitle.alt,
+      title: cardTitleEl.textContent,
     };
     modalImg.src = cardData.link;
     modalImg.alt = cardData.name;
+    previewImageModalTitle.textContent = cardData.title;
     openPopUp(previewImageModal);
   });
 

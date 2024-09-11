@@ -14,6 +14,15 @@
   width: 433px;
 }
 
+.modal__preview-image-title {
+  position: relative;
+  font-family: "inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  margin: 10px 0 0;
+}
+
 .modal__container {
   background-color: rgb(255, 255, 255);
   margin: auto;
