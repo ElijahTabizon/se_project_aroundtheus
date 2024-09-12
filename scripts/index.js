@@ -107,11 +107,8 @@ function getCardElement(cardData) {
     openPopUp(previewImageModal);
   });
 
-  // set the path to the image to the link field of the object
   cardImageEl.src = cardData.link;
-  // set the image alt text to the name field of the object
   cardImageEl.alt = cardData.imageAlt;
-  // set the card title to the name field of the object
   cardTitleEl.textContent = cardData.name;
   return cardElement;
 }
