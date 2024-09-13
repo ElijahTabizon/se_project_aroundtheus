@@ -179,4 +179,9 @@
     width: auto;
     height: auto;
   }
+
+  .modal__button {
+    font-size: 14px;
+    line-height: 16.94px;
+  }
 }
