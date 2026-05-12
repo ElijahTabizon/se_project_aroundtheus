@@ -34,6 +34,8 @@ function hasInvalidInput(inputList) {
 
 // enableButton
 
+// enables and disables the submit button
+
 function toggleButtonState(inputEls, submitButton, options) {
   /* let foundInvalid = false;
 
@@ -67,6 +69,7 @@ function setEventListeners(formEl, options) {
 
 function enableValidation(options) {
   const formEls = [...document.querySelectorAll(options.formSelector)];
+  console.log("forms found", formEls);
   formEls.forEach((formEl) => {
     formEl.addEventListener("submit", (e) => {
       e.preventDefault();

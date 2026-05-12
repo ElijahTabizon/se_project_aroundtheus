@@ -92,27 +92,31 @@
         <button class="modal__close" id="add-card-close-button"></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
-          <input
-            type="text"
-            name="title"
-            id="card-title-input"
-            class="modal__form-input"
-            placeholder="Title"
-            maxlength="30"
-            minlength="1"
-            required
-          />
-          <span class="modal__error" id="add-card-title-error"></span>
-          <input
-            type="url"
-            name="url"
-            id="image-url-input"
-            class="modal__form-input"
-            placeholder="Image URL"
-            required
-          />
-          <span class="modal__error" id="add-card-link-error"></span>
-          <button class="modal__button">Create</button>
+          <label for="" class="modal__label">
+            <input
+              type="text"
+              name="title"
+              id="card-title-input"
+              class="modal__form-input"
+              placeholder="Title"
+              maxlength="30"
+              minlength="1"
+              required
+            />
+            <span class="modal__error" id="card-title-input-error"></span>
+          </label>
+          <label for="" class="modal__label">
+            <input
+              type="url"
+              name="url"
+              id="image-url-input"
+              class="modal__form-input"
+              placeholder="Image URL"
+              required
+            />
+            <span class="modal__error" id="image-url-input-error"></span>
+          </label>
+          <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
     </div>

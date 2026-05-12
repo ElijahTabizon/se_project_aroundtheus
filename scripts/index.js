@@ -61,7 +61,7 @@ const previewImageModalTitle = document.querySelector(
 const previewImageModal = document.querySelector("#preview-image-modal");
 const modalImg = document.querySelector("#modal-image");
 const cardTitleInput = addCardForm.querySelector("#card-title-input");
-const cardLinkInput = addCardForm.querySelector("#card-link-input");
+const cardLinkInput = addCardForm.querySelector("#image-url-input");
 
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
@@ -69,6 +69,13 @@ function closePopUp(modal) {
 
 function openPopUp(modal) {
   modal.classList.add("modal_opened");
+}
+
+function openPopUpForms(modal, form) {
+  modal.classList.add("modal_opened");
+  form.reset();
+  toggleButtonState(inputEls, submitButton, options);
+  form.querySelector('button[type="submit"]').disabled = true;
 }
 
 function renderCard(cardData) {

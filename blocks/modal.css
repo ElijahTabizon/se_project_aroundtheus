@@ -147,7 +147,7 @@
   border-bottom: 1px solid #ff0000;
 }
 
-.modal__error_visible {
+.modal__error {
   color: rgba(255, 0, 0, 1);
   width: 164px;
   height: 12px;
@@ -158,6 +158,11 @@
   position: absolute;
   left: 0;
   top: 33px;
+  display: none;
+}
+
+.modal__error_visible {
+  display: inline-block;
 }
 
 @media screen and (max-width: 621px) {
