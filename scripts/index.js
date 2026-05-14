@@ -62,6 +62,8 @@ const previewImageModal = document.querySelector("#preview-image-modal");
 const modalImg = document.querySelector("#modal-image");
 const cardTitleInput = addCardForm.querySelector("#card-title-input");
 const cardLinkInput = addCardForm.querySelector("#image-url-input");
+const modals = document.querySelectorAll(".modal");
+const modalForm = document.querySelector(".modal__container");
 
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
@@ -73,7 +75,7 @@ function openPopUp(modal) {
 
 function openPopUpForms(modal, form) {
   modal.classList.add("modal_opened");
-  form.reset();
+  form.reset(cardTitleInput.value, cardLinkInput.value);
   toggleButtonState(inputEls, submitButton, options);
   form.querySelector('button[type="submit"]').disabled = true;
 }
@@ -158,5 +160,38 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 addNewCardButton.addEventListener("click", () => openPopUp(addCardModal));
 addNewCardButtonClose.addEventListener("click", () => closePopUp(addCardModal));
+
+// overlay event
+modals.forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    const openPopup = document.querySelector(".modal_opened");
+    closePopUp(openPopup);
+  });
+});
+
+modalForm.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+// escape key event
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const openPopup = document.querySelector(".modal_opened");
+    if (openPopup) {
+      closePopUp(openPopup);
+    }
+  }
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    const openPopup = document.querySelector(".modal_opened");
+    closePopUp(openPopup);
+  });
+});
+
+modalForm.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
