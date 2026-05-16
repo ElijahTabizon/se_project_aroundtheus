@@ -59,11 +59,13 @@ const previewImageModalTitle = document.querySelector(
   ".modal__preview-image-title"
 );
 const previewImageModal = document.querySelector("#preview-image-modal");
+console.log("previewImageModal:", previewImageModal);
 const modalImg = document.querySelector("#modal-image");
 const cardTitleInput = addCardForm.querySelector("#card-title-input");
 const cardLinkInput = addCardForm.querySelector("#image-url-input");
 const modals = document.querySelectorAll(".modal");
-const modalForm = document.querySelector(".modal__container");
+const modalForms = document.querySelectorAll(".modal__container");
+const modalPreviews = document.querySelectorAll(".modal__preview");
 
 function closePopUp(modal) {
   modal.classList.remove("modal_opened");
@@ -169,8 +171,16 @@ modals.forEach((modal) => {
   });
 });
 
-modalForm.addEventListener("click", (event) => {
-  event.stopPropagation();
+modalForms.forEach((modalForm) => {
+  modalForm.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+});
+
+modalPreviews.forEach((preview) => {
+  preview.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 });
 
 // escape key event
@@ -188,10 +198,6 @@ modals.forEach((modal) => {
     const openPopup = document.querySelector(".modal_opened");
     closePopUp(openPopup);
   });
-});
-
-modalForm.addEventListener("click", (event) => {
-  event.stopPropagation();
 });
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
