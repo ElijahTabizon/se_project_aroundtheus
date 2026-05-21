@@ -149,7 +149,7 @@
 
 .modal__error {
   color: rgba(255, 0, 0, 1);
-  width: 164px;
+  width: 100%;
   height: 12px;
   font-family: "inter", Arial, sans-serif;
   font-weight: 400;
