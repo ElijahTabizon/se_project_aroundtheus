@@ -1,5 +1,3 @@
-export default FormValidator();
-
 class FormValidator {
   constructor(settings, formEl) {
     this._inputSelector = settings.inputSelector;
@@ -13,10 +11,10 @@ class FormValidator {
   _showInputError(inputEl, errorMessage) {
     const errorMessageId = `#${inputEl.id}-error`;
     const errorElement = this._form.querySelector(errorMessageId);
-    inputEl.classList.add(inputErrorClass);
+    inputEl.classList.add(this._inputErrorClass);
     errorElement.textContent = inputEl.validationMessage;
     errorElement.classList.add(this._errorClass);
-    console.log(errorClass, inputErrorClass, inputEl);
+    console.log(this._errorClass, this._inputErrorClass, inputEl);
   }
 
   _toggleButtonState() {}
@@ -24,13 +22,13 @@ class FormValidator {
   _hasInvalidInput() {}
 
   _setEventListeners() {
-    const inputEls = [...this.form.querySelectorAll(this._inputSelector)];
-    const submitButton = this.form.querySelector(this._submitButtonSelector);
-    toggleButtonState(inputEls, submitButton, options);
+    const inputEls = [...this._form.querySelectorAll(this._inputSelector)];
+    const submitButton = this._form.querySelector(this._submitButtonSelector);
+    this._toggleButtonState(inputEls, submitButton);
     inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", () => {
-        checkInputValidity(this.form, inputEl, options);
-        toggleButtonState(inputEls, submitButton, options);
+        this._checkInputValidity(inputEl);
+        this._toggleButtonState(inputEls, submitButton);
       });
     });
   }
@@ -39,7 +37,7 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    setEventListeners(formEl, options);
+    this._setEventListeners();
   }
 }
 
@@ -52,6 +50,8 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
+const editForm = document.querySelector("#edit-profile-form");
 const editFormValidator = new FormValidator(settings, editForm);
 editFormValidator.enableValidation();
 // const addFormValidator = new FormValidator(settings, addForm);
+export default FormValidator;
