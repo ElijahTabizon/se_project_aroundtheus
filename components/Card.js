@@ -1,9 +1,10 @@
 export default class Card {
-  constructor({ name, link, imageAlt }, cardSelector) {
-    this._name = name;
-    this._link = link;
-    this._imageAlt = imageAlt;
+  constructor(data, cardSelector, handleImageClick) {
+    this._name = data.name;
+    this._link = data.link;
+    this._imageAlt = data.imageAlt || data.name;
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
 
   _setEventListeners() {
@@ -17,10 +18,14 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleTrashIcon();
       });
+    this._cardImage.addEventListener("click", () => {
+      this._handleImageClick(this._name, this._link);
+    });
   }
 
   _handleTrashIcon() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
 
   _handleLikeIcon() {
@@ -34,9 +39,17 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    // get the card view
+
+    this._cardImage = this._cardElement.querySelector(".card__image");
+    this._cardTitle = this._cardElement.querySelector(".card__title");
+
+    this._cardTitle.textContent = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._imageAlt;
+
     // set evt listeners
     this._setEventListeners();
     // return the card
+    return this._cardElement;
   }
 }
