@@ -77,7 +77,7 @@ const modals = document.querySelectorAll(".modal");
 const modalForms = document.querySelectorAll(".modal__container");
 const modalPreviews = document.querySelectorAll(".modal__preview");
 const closeButtons = document.querySelectorAll(".modal__close");
-const validationSettings = {
+const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
@@ -207,15 +207,6 @@ function closeModal(modal) {
 }
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
-
-const settings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
 const editFormElement = document.querySelector("#edit-profile-form");
 const addCardFormElement = document.querySelector("#add-card-form");
