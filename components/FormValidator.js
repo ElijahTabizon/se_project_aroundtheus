@@ -31,7 +31,6 @@ class FormValidator {
     if (errorElement) {
       inputEl.classList.remove(this._inputErrorClass);
       errorElement.classList.remove(this._errorClass);
-
       errorElement.textContent = "";
     }
   }

@@ -31,9 +31,7 @@ function hasInvalidInput(inputList) {
 }
 
 // disableButton
-
 // enableButton
-
 // enables and disables the submit button
 
 function toggleButtonState(inputEls, submitButton, options) {
