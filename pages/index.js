@@ -137,6 +137,8 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closeModal(profileEditModal);
+
+  editFormValidator.toggleButtonState();
 }
 
 // add card
@@ -146,22 +148,27 @@ function handleAddCardFormSubmit(e) {
   const linkValue = cardLinkInput.value;
   const cardData = { name: titleValue, link: linkValue, imageAlt: titleValue };
   renderCard(cardData);
-
   closeModal(addCardModal);
   e.target.reset();
+
+  addCardFormValidator.toggleButtonState();
 }
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  //profileEditModal.classList.add("modal_opened");
+  editFormValidator.resetValidation();
   openModal(profileEditModal);
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-addNewCardButton.addEventListener("click", () => openModal(addCardModal));
+addNewCardButton.addEventListener("click", () => {
+  addCardForm.reset();
+  addCardFormValidator.resetValidation();
+  openModal(addCardModal);
+});
 
 // overlay event
 modals.forEach((modal) => {
@@ -200,3 +207,21 @@ function closeModal(modal) {
 }
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormElement = document.querySelector("#edit-profile-form");
+const addCardFormElement = document.querySelector("#add-card-form");
+
+const editFormValidator = new FormValidator(settings, editFormElement);
+const addCardFormValidator = new FormValidator(settings, addCardFormElement);
+
+editFormValidator.enableValidation();
+addCardFormValidator.enableValidation();

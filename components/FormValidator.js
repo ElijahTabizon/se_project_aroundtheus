@@ -28,11 +28,12 @@ class FormValidator {
   _hideInputError(inputEl) {
     const errorMessageId = `#${inputEl.id}-error`;
     const errorElement = this._form.querySelector(errorMessageId);
+    if (errorElement) {
+      inputEl.classList.remove(this._inputErrorClass);
+      errorElement.classList.remove(this._errorClass);
 
-    inputEl.classList.remove(this._inputErrorClass);
-    errorElement.classList.remove(this._errorClass);
-
-    errorElement.textContent = "";
+      errorElement.textContent = "";
+    }
   }
 
   _toggleButtonState(inputList, buttonElement) {
@@ -69,6 +70,23 @@ class FormValidator {
     });
     this._setEventListeners();
   }
+
+  resetValidation() {
+    const inputList = [...this._form.querySelectorAll(this._inputSelector)];
+    const submitButton = this._form.querySelector(this._submitButtonSelector);
+
+    inputList.forEach((inputEl) => {
+      this._hideInputError(inputEl);
+    });
+
+    this._toggleButtonState(inputList, submitButton);
+  }
+
+  toggleButtonState() {
+    const inputList = [...this._form.querySelectorAll(this._inputSelector)];
+    const submitButton = this._form.querySelector(this._submitButtonSelector);
+    this._toggleButtonState(inputList, submitButton);
+  }
 }
 
 const settings = {
@@ -80,8 +98,4 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editForm = document.querySelector("#edit-profile-form");
-const editFormValidator = new FormValidator(settings, editForm);
-editFormValidator.enableValidation();
-// const addFormValidator = new FormValidator(settings, addForm);
 export default FormValidator;
