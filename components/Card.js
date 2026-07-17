@@ -25,7 +25,6 @@ export default class Card {
 
   _handleTrashIcon() {
     this._cardImageEl.remove();
-    this.__cardImageEl = null;
   }
 
   _handleLikeIcon() {

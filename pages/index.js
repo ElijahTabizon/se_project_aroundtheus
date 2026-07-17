@@ -34,30 +34,29 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   imageAlt: "Yosemite Valley",
 };
 const card = new Card(cardData, "#card-template");
-card.getView();
+//card.getView();
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
 const profileCloseButton = profileEditModal.querySelector(
-  "#profile-close-button"
+  "#profile-close-button",
 );
 const addNewCardButtonClose = addCardModal.querySelector(
-  "#add-card-close-button"
+  "#add-card-close-button",
 );
 const addNewCardButton = document.querySelector(".profile__add-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
@@ -66,10 +65,9 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const previewImageModalClose = document.querySelector("#preview-image-close");
 const previewImageModalTitle = document.querySelector(
-  ".modal__preview-image-title"
+  ".modal__preview-image-title",
 );
 const previewImageModal = document.querySelector("#preview-image-modal");
-console.log("previewImageModal:", previewImageModal);
 const modalImg = document.querySelector("#modal-image");
 const cardTitleInput = addCardForm.querySelector("#card-title-input");
 const cardLinkInput = addCardForm.querySelector("#image-url-input");
@@ -87,7 +85,8 @@ const settings = {
 };
 
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template");
+  const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 }
 
