@@ -19,7 +19,7 @@ export default class Card {
         this._handleTrashIcon();
       });
     this._cardImage.addEventListener("click", () => {
-      this.handleImageClick(this);
+      this._handleImageClick({ name: this._name, link: this._link });
     });
   }
 

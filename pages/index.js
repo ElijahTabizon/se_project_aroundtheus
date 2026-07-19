@@ -39,8 +39,7 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   imageAlt: "Yosemite Valley",
 };
-//const card = new Card(cardData, "#card-template");
-
+const card = new Card(cardData, "#card-template", handleImageClick);
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
